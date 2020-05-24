@@ -12,11 +12,13 @@
 
         <header th:fragment="logged-in" th:remove="tag">
             <header>
-                <a href="posts/create.html" th:href="@{/posts/newpost}">Create post</a>
+                <b>Logged in as:</b>
+                <label th:text="${session.loggeduser.profile.fullName}"></label>!
                 <form method="post" th:action="@{/users/logout}">
                     <input type="submit" value="Logout"/>
                 </form>
-                <a href="/" class="button" th:href="@{/}">Back To Home</a>
+                <br><br>
+                <a href="posts/create.html" th:href="@{/posts/newpost}">Create Post</a>
             </header>
         </header>
 

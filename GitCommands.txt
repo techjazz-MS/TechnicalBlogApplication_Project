@@ -1,0 +1,23 @@
+To add all new/modified files:
+git add .
+
+To commit the changes to git:
+git commit -m "commit message"
+
+To push the changes to remote git after commit:
+git push TechnicalBlog master
+
+To check the git branches locally:
+git branch
+
+To select a specific branch locally:
+git checkout branchName
+
+To delete a localbranch
+git branch -d localBranchName
+
+To list remote branches:
+git branch -r
+
+You can check them out as local branches with:
+git checkout -b LocalName origin/remotebranchname

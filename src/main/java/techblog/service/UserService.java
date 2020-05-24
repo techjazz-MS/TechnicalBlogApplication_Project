@@ -1,16 +1,28 @@
 package techblog.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import techblog.model.User;
+import techblog.repository.PostRepository;
+import techblog.repository.UserRepository;
 
 @Service
 public class UserService {
-    public boolean login(User user){
-        if(user.getUsername().equals("validuser")){
-            return true;
+
+    @Autowired
+    private UserRepository repository;
+
+    public User login(User user){
+
+        User existingUser = repository.checkUser(user.getUsername(), user.getPassword());
+        if(existingUser != null){
+            return existingUser;
+        } else{
+            return null;
         }
-        else{
-            return false;
-        }
+    }
+
+    public void registerUser(User newUser){
+        repository.registerUser(newUser);
     }
 }

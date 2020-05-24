@@ -9,11 +9,13 @@
     <header th:replace="layout :: logged-in"></header>
 
     <body>
-    <h1>Welcome User. These are your posts</h1>
+    <h1>Welcome <label th:text="${session.loggeduser.profile.fullName}"></label>! These are your posts</h1>
     <main id="posts">
         <post th:each="p : ${posts}">
             <h2 th:text="${p.title}"></h2>
             <i>Posted On: </i> <span th:text="${p.date}"></span>
+            <br>
+<!--            <i>Created By: </i> <span th:text="${p.user}"></span>-->
             <div>
                 <p th:text="${p.body}"></p>
             </div>
